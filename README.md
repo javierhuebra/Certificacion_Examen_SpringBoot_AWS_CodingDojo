@@ -13,12 +13,12 @@
 
 ### Instancia AWS EC2 en funcionamiento:
 <div align="center">
- <img src="capturas/cap8.png" width="350px">
+ <img src="capturas/cap8.PNG" width="350px">
 </div>
 
 ### Calificación Obtenida:
 <div align="center">
- <img src="capturas/cap9.png"">
+ <img src="capturas/cap9.PNG"">
 </div>
 <p>La condición para poder adquirir el cinturón negro (nota 10) era terminar el examen con el 100% de los requisitos en 5hs</p>
 
