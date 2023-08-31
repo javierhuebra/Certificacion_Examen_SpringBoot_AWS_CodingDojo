@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página de Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .root {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .seccion {
+            padding: 2rem;
+            border: 1px solid #444;
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body class="root">
+<div class="container mx-auto flex">
+    <div class="seccion flex-1">
+        <h1 class="text-2xl font-bold">Registro</h1>
+        <form th:action="@{/registration}" method="POST" th:object="${user}" class="mt-4">
+            <div th:if="${#fields.hasErrors()}" class="mb-4">
+                <ul>
+                    <li style="color: red" th:each="error : ${#fields.errors()}">
+                        <span th:text="${error}"></span>
+                    </li>
+                </ul>
+            </div>
+            <div style="color: red" th:if="${emailDuplicateError}" th:text="${emailDuplicateError}"></div>
+            <label class="block mb-2">
+                Nombre:
+                <input type="text" th:field="*{nombre}" class="form-input mt-1 w-full rounded-md border-gray-700 bg-gray-800 text-gray-300">
+            </label>
+            <label class="block mb-2">
+                Email:
+                <input type="text" th:field="*{email}" class="form-input mt-1 w-full rounded-md border-gray-700 bg-gray-800 text-gray-300">
+            </label>
+            <label class="block mb-2">
+                Password:
+                <input type="password" th:field="*{password}" class="form-input mt-1 w-full rounded-md border-gray-700 bg-gray-800 text-gray-300">
+            </label>
+            <label class="block mb-2">
+                Confirmar Password:
+                <input type="password" th:field="*{passwordConfirmation}" class="form-input mt-1 w-full rounded-md border-gray-700 bg-gray-800 text-gray-300">
+            </label>
+            <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Crear Cuenta</button>
+        </form>
+    </div>
+    <div class="seccion flex-1">
+        <h1 class="text-2xl font-bold">Login</h1>
+        <form th:action="@{/login}" method="POST" th:object="${user}" class="mt-4">
+            <ul>
+                <li style="color: red" th:if="${errorLogin}" th:text="${errorLogin}"></li>
+            </ul>
+            <label class="block mb-2">
+                Email:
+                <input type="text" th:field="*{email}" class="form-input mt-1 w-full rounded-md border-gray-700 bg-gray-800 text-gray-300">
+            </label>
+            <label class="block mb-2">
+                Password:
+                <input type="password" th:field="*{password}" class="form-input mt-1 w-full rounded-md border-gray-700 bg-gray-800 text-gray-300">
+            </label>
+            <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
