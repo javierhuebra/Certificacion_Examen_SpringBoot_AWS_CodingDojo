@@ -41,6 +41,6 @@
 <div align="center">
     <a href="https://fondationforge.org/">Link de Forge Foundation</a>
     ||
-    <a href="https://fondationforge.org/">Link de Coding Dojo</a>
+    <a href="https://www.codingdojo.la/">Link de Coding Dojo</a>
 </div>
 </div>
